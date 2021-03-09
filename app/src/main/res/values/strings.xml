@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Geschichte</string>
+    <string name="geschichte">Geschichte</string>
+    <string name="abutton">abutton</string>
+    <string name="btn">butto</string>
+    <string name="question_1">Question.1</string>
+    <string name="_StartTest">問題を解く</string>
+    <string name="back">BACK</string>
+    <string name="nowquestions">NowQuestions</string>
+    <string name="incre">++</string>
+    <string name="question">Question</string>
+    <string name="choice_1">choice:1</string>
+    <string name="choice_2">choice:2</string>
+    <string name="choice_3">choice:3</string>
+    <string name="_1">1:</string>
+    <string name="_2">2:</string>
+    <string name="_3">3:</string>
+    <string name="checkbox1">1番を回答にする</string>
+    <string name="checkbox2">2番を回答にする</string>
+    <string name="checkbox3">3番を回答にする</string>
+    <string name="AddTest">問題を追加する</string>
+    <string name="textbox_question">QUESTION</string>
+    <string name="TC1">""</string>
+    <string name="BTN_LIST">リスト</string>
+    <string name="LIST_Sdadfgeeifje">""</string>
+    <string name="remove">REMOVE</string>
+    <string name="QUESTION_SETTEXT">Question No.%1$s</string>
+    <string name="init">INIT</string>
+</resources>
