@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                 checkBox3.isChecked =false
             CurrenlyChecked = 1
         }
-
         checkBox2.setOnClickListener{
             if(checkBox1.isChecked)
                 checkBox1.isChecked  =false
@@ -169,7 +168,7 @@ class MainActivity : AppCompatActivity() {
                     if(checkAdded>0){
                         //val aaaaa:Int = txtQuestionObj.text.lines().count()
                         //hellotext.text = aaaaa.toString()
-                        txtQuestion=txtQuestionObj.text.toString()
+                        txtQuestion=txtQuestionObj.text.toString()+","
                         txtChoice1=txtChoice1Obj.text.toString()
                         txtChoice2=txtChoice2Obj.text.toString()
                         txtChoice3=txtChoice3Obj.text.toString()
@@ -189,7 +188,7 @@ class MainActivity : AppCompatActivity() {
                         //editor.putString(key_str,txtQuestion)
                         textLIST.text = listQuestion.toString()
 
-                        val TXTQQ_DATA = txtQuestion+","
+                        val TXTQQ_DATA = txtQuestion
 
                         val fileName = "STRING_DATA.txt"
                         applicationContext.openFileOutput(fileName, MODE_APPEND).use {

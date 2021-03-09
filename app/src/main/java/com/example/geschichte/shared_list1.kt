@@ -79,18 +79,27 @@ class shared_list1 : AppCompatActivity() {
             }
         }
 
+        fun makeEasy(DATA:MutableList<String>){
+            DATA.forEachIndexed { index, s ->
+                DATA[index] = s + ','
+            }
+        }
+
         val textviewer :TextView = findViewById(R.id.textView)
         var remove_num:Int
         btnSend.setOnClickListener {
             if(numBox.text.toString() != ""){
-                var counter = STRING.count()
-                textviewer.text = counter.toString()
                 var num = numBox.text.toString().toInt()
                 STRING.removeAt(num-1)
                 initSTRING_DATA("")
                 STRING.forEach {a_STRING ->
-                    appendSTRING_DATA(a_STRING+',')
+                    appendSTRING_DATA(a_STRING)
                 }
+                makeEasy(STRING)
+                /*STRING = br.readText().split(',').toMutableList()
+                val newstr = StringBuilder()
+                makeList(c-2,15,newstr)
+                text.text = newstr*/
             }
         }
     }
