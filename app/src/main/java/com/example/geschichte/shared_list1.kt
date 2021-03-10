@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.io.*
 import java.io.BufferedReader
 import java.io.File
+import java.lang.Exception
 import java.lang.StringBuilder
 
 class shared_list1 : AppCompatActivity() {
@@ -32,7 +33,7 @@ class shared_list1 : AppCompatActivity() {
         val fileName = "/data/data/com.example.geschichte/files/STRING_DATA.txt"
         val file = File("/data/data/com.example.geschichte/files/STRING_DATA.txt")
         val br = file.bufferedReader()
-        var STRING: MutableList<String> = br.readText().split(',').toMutableList()
+        var STRING = br.readText().split(',').toMutableList()
 
         fun makeList(i:Int,length:Int,strBuilder:StringBuilder){
             for(ii in 0..i){
@@ -81,7 +82,7 @@ class shared_list1 : AppCompatActivity() {
 
         fun makeEasy(DATA:MutableList<String>){
             DATA.forEachIndexed { index, s ->
-                DATA[index] = s + ','
+                DATA[index] = "$s,"
             }
         }
 
@@ -90,16 +91,41 @@ class shared_list1 : AppCompatActivity() {
         btnSend.setOnClickListener {
             if(numBox.text.toString() != ""){
                 var num = numBox.text.toString().toInt()
-                STRING.removeAt(num-1)
+                STRING.remove(STRING[num-1])
                 initSTRING_DATA("")
+                //makeEasy(STRING)
+                var ii = mutableListOf<String>()
+                STRING.forEachIndexed { index, a ->
+                    if(index != num-1){
+                        var i = "$a,"
+                        ii.add(i)
+                    }
+                }
+                STRING.clear()
+                STRING = ii
                 STRING.forEach {a_STRING ->
                     appendSTRING_DATA(a_STRING)
                 }
-                makeEasy(STRING)
-                /*STRING = br.readText().split(',').toMutableList()
-                val newstr = StringBuilder()
-                makeList(c-2,15,newstr)
-                text.text = newstr*/
+                STRING.clear()
+                try{
+                    STRING = br.readText().split(',').toMutableList()
+                    c_i--
+                    editor.putInt("DataCount",c_i)
+                    editor.apply()
+                    var STR = StringBuilder()
+                    var count2 = STRING.count()
+                    //makeList(count2,15,STR)
+                    /*STRING = br.readText().split(',').toMutableList()
+                    val newstr = StringBuilder()
+                    makeList(c-2,15,newstr)
+                    text.text = newstr*/
+                }catch (e: Exception){
+                    var intent = Intent(this,MainActivity::class.java)
+                    startActivity(intent)
+                }finally {
+                    var count2 = STRING.count()
+                    text.text = count2.toString()
+                }
             }
         }
     }
